@@ -51,19 +51,7 @@ const FileUpload = () => {
       id: 1,
     },
   ];
-  // const [jobs , setJobs] = useState([]);
-  // useEffect(()=>{
-     
-  
-  // getData()
-  // }, )
-  // const getData = async ()=>{
-  //     const {data} = await axios("http://localhost:3001/count")
-  //     console.log(data)
-  //     setJobs(data)
-     
-  // }
-  // getData()
+ 
 
 
   return (

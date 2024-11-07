@@ -1,8 +1,7 @@
 
 
-import FileUpload from "./components/HorizontalContainer";
-// import FileUploader from "./Fillesupload";
-// import FilesUpload from "./Fillesupload";
+import FileUpload from "./components/FileUpload";
+
 
 
 export default function App() {
@@ -10,10 +9,6 @@ export default function App() {
    <>
    <div className="min-h-screen bg-gray-100 flex items-center justify-center">
     <FileUpload />
-    {/* <FilesUpload/> */}
-    {/* <FileUploader/> */}
-    {/* <Card/> */}
-
   </div>
    </>
   )
