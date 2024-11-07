@@ -5,6 +5,8 @@ import { TiMessages } from "react-icons/ti";
 import { RiAttachment2 } from "react-icons/ri";
 import { Modal } from "./Modal";
 import axios from "axios";
+import img1 from '../assets/yeasin.png'
+import img2 from '../assets/yeasin23.png'
 
 const FileUpload = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -86,7 +88,7 @@ const FileUpload = () => {
                     <div className="flex items-center ">
                       <img
                         className="w-[30px] rounded-full mx-2"
-                        src="/public/yeasin.png"
+                        src={img1}
                         alt=""
                       />
                       <p className="font-medium">Client Name</p>
@@ -94,7 +96,7 @@ const FileUpload = () => {
                     <div className="flex items-center ">
                       <img
                         className="w-[30px] rounded-full mx-2"
-                        src="/public/yeasin23.png"
+                        src={img2}
                         alt=""
                       />
                       <p className="font-medium">Client Name</p>
@@ -115,12 +117,12 @@ const FileUpload = () => {
                     {/* part3 */}
                     <img
                       className="w-[30px] rounded-full mx-2"
-                      src="/public/yeasin.png"
+                      src={img2}
                       alt=""
                     />
                     <img
                       className="w-[30px] rounded-full mx-2"
-                      src="/public/yeasin.png"
+                      src={img1}
                       alt=""
                     />
                     <p>12 +</p>
