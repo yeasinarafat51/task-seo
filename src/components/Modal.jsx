@@ -1,20 +1,31 @@
-/* eslint-disable react/no-unknown-property */
 /* eslint-disable react/prop-types */
-export function Modal({ closeModal }) {
-    return (
-      <div className="fixed inset-0  flex items-center justify-center transition-opacity ">
-        <div className="bg-white p-6 rounded-lg shadow-lg w-80 transition-transform transform scale-100">
-        <div className="p-4">
-        {/* <form action="http://localhost:8000" method="post" enctype="multipart/form-data">
-      <input type="file" name="files" />
-      <input className="text-black" type="submit" value="Submit" />
-    </form> */}
-        </div>
-          <button onClick={closeModal} className="bg-red-500 text-white px-4 py-2 my-4 rounded">
-            Close Modal
-          </button>
+// import { useState } from "react";
+
+export function Modal({ closeModal, files, setFiles, handleUpload }) {
+  const handleFileChange = (e) => {
+    const selectedFiles = Array.from(e.target.files);
+    setFiles([...files, ...selectedFiles]);
+  };
+
+  return (
+    <div className="fixed inset-0 bg-gray-500 bg-opacity-50 flex justify-center items-center">
+      <div className="bg-white p-8 rounded-lg w-1/3">
+        <h2 className="text-xl font-semibold">Pick Attachment: {files.length}</h2>
+        
+        <input type="file" multiple onChange={handleFileChange} className="mb-4" />
+        <ul className="space-y-2">
+          {files.map((file, index) => (
+            <li key={index} className="bg-gray-200 p-2 rounded">
+              {file.name} ({file.name.split('.').pop()})
+            </li>
+          ))}
+        </ul>
+
+        <div className="mt-4 flex justify-end space-x-2">
+          {/* <button onClick={handleUpload} className="bg-green-500 text-white p-2 rounded">Upload</button> */}
+          <button onClick={closeModal} className="bg-blue-500 text-white p-2 rounded">Close</button>
         </div>
       </div>
-    );
-  }
-  
+    </div>
+  );
+}

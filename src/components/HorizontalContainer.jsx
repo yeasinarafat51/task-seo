@@ -4,11 +4,28 @@ import { MdConfirmationNumber, MdOutlineDateRange } from "react-icons/md";
 import { TiMessages } from "react-icons/ti";
 import { RiAttachment2 } from "react-icons/ri";
 import { Modal } from "./Modal";
+import axios from "axios";
 
 const FileUpload = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const openModal = () => setIsModalOpen(true);
   const closeModal = () => setIsModalOpen(false);
+  const [files, setFiles] = useState([]);
+  const [fileCount, setFileCount] = useState(0);
+  const handleUpload = async () => {
+    const formData = new FormData();
+    files.forEach(file => formData.append('files', file));
+    try {
+      const response = await axios.post('http://localhost:8000/upload', formData, {
+        headers: { 'Content-Type': 'multipart/form-data' },
+      });
+      setFileCount(response.data.count); // Update the count
+      setFiles([]); // Clear file selection
+      closeModal();
+    } catch (error) {
+      console.error("File upload failed:", error);
+    }
+  };
   const datas = [
     {
       color: "bg-red-400",
@@ -34,6 +51,21 @@ const FileUpload = () => {
       id: 1,
     },
   ];
+  // const [jobs , setJobs] = useState([]);
+  // useEffect(()=>{
+     
+  
+  // getData()
+  // }, )
+  // const getData = async ()=>{
+  //     const {data} = await axios("http://localhost:3001/count")
+  //     console.log(data)
+  //     setJobs(data)
+     
+  // }
+  // getData()
+
+
   return (
     <div className=" bg-[#f2f2f2] overflow-x-auto h-screen  scrollbar-thin scrollbar-thumb-blue-500 scrollbar-track-gray-200 flex p-4 space-x-4">
       {datas.map((data) => (
@@ -53,7 +85,7 @@ const FileUpload = () => {
                 <p className="font-semibold">{data.title}</p>
               </div>
             </div>
-            <div>
+            <div className="bg-[#f2f2f2]">
               <p className="font-semibold shadow rounded-md p-2">0</p>
             </div>
           </div>
@@ -112,8 +144,10 @@ const FileUpload = () => {
                       <button onClick={openModal} className="">
                         <RiAttachment2 />
                       </button>{" "}
-                      {isModalOpen && <Modal closeModal={closeModal} />}
-                      <p>25</p>
+                      {isModalOpen && (
+        <Modal closeModal={closeModal} files={files} setFiles={setFiles} handleUpload={handleUpload} />
+      )}
+                      <p>{files.length}</p>
                     </div>
                     <div className="flex items-center space-x-2">
                       <MdOutlineDateRange />
