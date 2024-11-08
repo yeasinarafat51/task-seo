@@ -37,20 +37,20 @@ const FileUpload = () => {
     {
       color: "bg-cyan-400",
       title: "To Do",
-      id: 1,
+      id: 2,
     },
     {
       color: "bg-yellow-400",
       title: "Doing",
-      id: 1,
+      id: 3,
     },
     {
       title: "Under Review",
-      id: 1,
+      id: 4,
     },
     {
       title: "Incomplete",
-      id: 1,
+      id: 5,
     },
   ];
  
