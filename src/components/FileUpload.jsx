@@ -64,7 +64,7 @@ const FileUpload = () => {
           className="h-screen   overflow-y-scroll scrollbar-thin scrollbar-thumb-blue-500 scrollbar-track-gray-200 p-4 "
           style={{ minWidth: "400px" }}
         >
-          {/* <h2 className="text-lg font-bold">Card {index + 1}</h2> */}
+          
           <div className=" flex items-center justify-between">
             <div className="flex items-center gap-2">
               <div
@@ -135,8 +135,9 @@ const FileUpload = () => {
                         <RiAttachment2 />
                       </button>{" "}
                       {isModalOpen && (
-        <Modal closeModal={closeModal} files={files} setFiles={setFiles} handleUpload={handleUpload} />
-      )}
+                        // Madal
+                      <Modal closeModal={closeModal} files={files} setFiles={setFiles} handleUpload={handleUpload} />
+                        )}
                       <p>{files.length}</p>
                     </div>
                     <div className="flex items-center space-x-2">
@@ -145,7 +146,7 @@ const FileUpload = () => {
                     </div>
                   </div>
                 </div>
-                {/* Content Item {itemIndex + 1} */}
+                
               </div>
             ))}
           </div>
