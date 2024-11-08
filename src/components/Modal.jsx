@@ -11,7 +11,7 @@ export function Modal({ closeModal, files, setFiles, handleUpload }) {
   return (
     <div className="fixed inset-0 flex justify-center items-center">
       <div className="bg-white p-8 rounded-lg w-1/3">
-        <h2 className="text-xl font-semibold">Pick Attachment: {files.length}</h2>
+        <h2 className="text-xl font-semibold">File Attachment: {files.length}</h2>
         
         <input type="file" multiple onChange={handleFileChange} className="mb-4" />
         <ul className="space-y-2">
