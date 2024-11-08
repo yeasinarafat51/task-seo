@@ -99,7 +99,7 @@ const FileUpload = () => {
                         src={img2}
                         alt=""
                       />
-                      <p className="font-medium">Client Name</p>
+                      <p className="font-medium">Sadik Istiak</p>
                     </div>
                   </div>
                   <div className="flex items-center justify-between mx-2">
